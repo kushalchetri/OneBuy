@@ -1,97 +1,129 @@
-# OneBuy - E-Commerce Module
+OneBuy – Mini E-Commerce Module
 
-A complete full-stack e-commerce application built with React, Node.js, Express, MongoDB, and Tailwind CSS.
+OneBuy is a full-stack mini e-commerce application built as a take-home assignment to demonstrate frontend development, backend APIs, and basic Docker usage.
 
-## Features
+The project includes a product listing, shopping cart functionality, REST APIs, and a fully containerized setup using Docker.
 
-- Product listing with responsive grid layout
-- Shopping cart with add/remove/update quantity
-- Real-time total price calculation
-- Clean, professional UI with Tailwind CSS
-- Auto-seeding database from product images
-- RESTful API with validation and error handling
+Running the Application with Docker (Recommended)
 
-## Project Structure
+The entire application is containerized and can be started with a single command.
 
-```
-onebuy/
-├── backend/          # Node.js + Express + MongoDB
-├── frontend/         # React + Vite + Tailwind CSS
-└── products/         # Original product images
-```
+Prerequisites
 
-## Setup Instructions
+Docker
 
-### 1. Configure MongoDB Connection
+Docker Compose
 
-Edit `backend/.env` and add your MongoDB connection string:
+Steps to Run
+docker-compose up --build
 
-```env
+Application URLs
+
+Frontend: http://localhost:5173
+
+Backend: http://localhost:5000
+
+Manual Setup (Without Docker)
+1. Configure Environment Variables
+
+Create or update backend/.env:
+
 MONGODB_URI=your_mongodb_connection_string_here
 PORT=5000
-```
 
-### 2. Start Backend Server
-
-```bash
+2. Start Backend Server
 cd backend
-npm start
-```
+npm install
+npm run dev
 
-The server will:
-- Connect to MongoDB
-- Auto-seed the database with 12 products (if empty)
-- Start on port 5000
 
-### 3. Start Frontend Development Server
+The backend will:
+
+Connect to MongoDB
+
+Seed the database with products if empty
+
+Run on port 5000
+
+3. Start Frontend Development Server
 
 Open a new terminal:
 
-```bash
 cd frontend
+npm install
 npm run dev
-```
 
-The React app will start on port 3000.
 
-### 4. Open in Browser
+The frontend will start on port 5173.
 
-Navigate to: `http://localhost:3000`
+Features
 
-## API Endpoints
+Product listing page with responsive layout
 
-- `GET /products` - Fetch all products
-- `POST /cart` - Add item to cart (with validation)
+Product cards with image, name, price, and add-to-cart
 
-## Technologies Used
+Cart page with quantity update and item removal
 
-**Backend:**
-- Node.js
-- Express.js
-- MongoDB with Mongoose
-- CORS
-- dotenv
+Real-time total price calculation
 
-**Frontend:**
-- React 18
-- Vite
-- Tailwind CSS
-- Axios
-- Context API for state management
+RESTful APIs with validation and error handling
 
-## Product Images
+Database auto-seeding on first run
 
-The application includes 12 products across 3 categories:
-- Clothes (4 items)
-- Electronics (4 items)
-- Shoes (4 items)
+API Endpoints
 
-Images are automatically loaded from `frontend/public/assets/` and seeded into the database on first run.
+GET /products – Fetch all products
 
-## Development Notes
+POST /cart – Add item to cart (with validation)
 
-- No custom CSS files - Tailwind utilities only
-- Functional React components with hooks
-- Async/await for all asynchronous operations
-- Centralized error handling
-- Validation middleware for API requests
+Project Structure
+onebuy/
+├── backend/          # Node.js + Express + MongoDB
+├── frontend/         # React + Vite + Tailwind CSS
+├── products/         # Product images used for seeding
+└── docker-compose.yml
+
+Technologies Used
+Frontend
+
+React 18
+
+Vite
+
+Tailwind CSS
+
+Axios
+
+Context API for state management
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB with Mongoose
+
+dotenv
+
+Validation middleware
+
+DevOps
+
+Docker
+
+Docker Compose
+
+Development Notes
+
+Functional React components with hooks only
+
+No external UI libraries used
+
+Clean folder structure
+
+Centralized error handling in backend
+
+Environment variables managed using .env
+
+Application runs using docker-compose up --build
